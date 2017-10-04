@@ -1,0 +1,26 @@
+{
+  "name": "conditional-console",
+  "version": "1.0.0",
+  "description": "An easy way of using console.log depending on conditions.",
+  "scripts": {
+    "uglify": "node_modules/.bin/uglifyjs ConditionalConsole.js --output ConditionalConsole.min.js --mangle --compress --comments \"/^!/\"",
+    "doc": "node_modules/.bin/jsdoc ConditionalConsole.js --template node_modules/minami --destination ./doc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BirkAndMe/ConditionalConsole"
+  },
+  "keywords": [
+    "Console",
+    "Conditional",
+    "Debug",
+    "Developer"
+  ],
+  "author": "Philip Birk-Jensen <philip@birk-jensen.dk>",
+  "license": "MIT",
+  "devDependencies": {
+    "jsdoc": "^3.5.5",
+    "minami": "^1.2.3",
+    "uglify": "^0.1.5"
+  }
+}
