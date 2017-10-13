@@ -373,9 +373,11 @@
         return this.__setState(false);
       }
 
-      this._once[label] = true;
+      if (this.__getState()) {
+        this._once[label] = true;
+      }
 
-      return this.__setState(true);
+      return this;
     },
 
     /**
