@@ -404,7 +404,7 @@
 
       return this;
     },
-  }
+  };
 
   // ---------------------------------------------------------------------------
   // Helper function, that adds all the console methods to the given
@@ -438,7 +438,7 @@
         cc._addFunction(key, dummy);
       }
     }
-  };
+  }
 
   // ---------------------------------------------------------------------------
   // Expose this to nodejs, AMD or any scope.
