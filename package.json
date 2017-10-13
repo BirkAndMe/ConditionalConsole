@@ -1,6 +1,6 @@
 {
   "name": "conditional-console",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An easy way of using console.log depending on conditions.",
   "scripts": {
     "uglify": "node_modules/.bin/uglifyjs ConditionalConsole.js --output ConditionalConsole.min.js --mangle --compress --comments \"/^!/\"",
