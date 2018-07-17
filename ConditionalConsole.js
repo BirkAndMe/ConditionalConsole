@@ -78,17 +78,6 @@
     __locked_state: null,
 
     /**
-     * What operator will be used setting the next state.
-     *
-     * This is typically and/or but future more advanced checks could be
-     * implemented.
-     *
-     * @type {Boolean}
-     * @private
-     */
-    __logical_operator: 'and',
-
-    /**
      * The current types to output.
      * @type {Number}
      * @private
@@ -106,18 +95,7 @@
      * @private
      */
     __setState: function (state) {
-      state = !!state;
-
-      switch (this.__logical_operator) {
-        case 'and':
-          this.__state = this.__state && state;
-          break;
-
-        case 'or':
-          this.__state = this.__state || state;
-          break;
-      }
-
+      this.__state = this.__state && !!state;
       return this;
     },
 
@@ -189,28 +167,6 @@
      * outputted.
      */
     nop: function () { },
-
-    /**
-     * The following conditions will be OR'ed on.
-     *
-     * @return {ConditionalConsole}
-     *   Chainable.
-     */
-    or: function () {
-      this.__logical_operator = 'or';
-      return this;
-    },
-
-    /**
-     * The following conditions will be AND'ed on.
-     *
-     * @return {ConditionalConsole}
-     *   Chainable.
-     */
-    and: function () {
-      this.__logical_operator = 'and';
-      return this;
-    },
 
     /**
      * Add a reporting type.
