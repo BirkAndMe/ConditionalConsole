@@ -117,11 +117,11 @@
 
       switch (this.__logical_operator) {
         case 'and':
-          this.__state = state && state;
+          this.__state = this.__state && state;
           break;
 
         case 'or':
-          this.__state = state || state;
+          this.__state = this.__state || state;
           break;
       }
 
