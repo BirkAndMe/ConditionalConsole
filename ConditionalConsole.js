@@ -71,18 +71,11 @@
     __state: true,
 
     /**
-     * If the state is locked.
-     * @type {Boolean}
-     * @private
-     */
-    __is_locked: false,
-
-    /**
      * The state when it was locked.
-     * @type {Boolean}
+     * @type {mixed}
      * @private
      */
-    __locked_state: true,
+    __locked_state: null,
 
     /**
      * What operator will be used setting the next state.
@@ -140,7 +133,7 @@
      * @private
      */
     __getState: function () {
-      return this.__is_locked === true ? this.__locked_state : this.__state;
+      return this.__locked_state !== null ? this.__locked_state : this.__state;
     },
 
     /**
@@ -320,8 +313,6 @@
      */
     lock: function () {
       this.__locked_state = this.__state;
-      this.__is_locked = true;
-
       return this;
     },
 
@@ -334,8 +325,7 @@
      *   Chainable.
      */
     releaseLock: function () {
-      this.__is_locked = false;
-
+      this.__locked_state = null;
       return this;
     },
 
