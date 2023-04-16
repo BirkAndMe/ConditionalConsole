@@ -10,12 +10,12 @@
   });
 
   /**
-   * 
+   *
    */
   let _verbosityLevel = 0;
 
   /**
-   * 
+   *
    */
   let _tags = {}
 
@@ -53,9 +53,9 @@
   /**
    * @param {string|string[]} tags
    */
-  console.tag = function (tags) {
+  console.tags = function (tags) {
     if (!Array.isArray(tags)) {
-      tags = tags.split(',');
+      tags = tags.split(' ');
     }
 
     if (tags.some(function (tag) { return _tags[tag]; })) {
@@ -70,7 +70,7 @@
    */
   console.setTags = function (tags) {
     if (!Array.isArray(tags)) {
-      tags = tags.split(',');
+      tags = tags.split(' ');
     }
 
     tags.forEach(function (tag) {
@@ -93,7 +93,7 @@
   }
 
   // Initialize with query parameters.
-  console.setTags((new URLSearchParams(location.search)).get('ccTags') || '');
-  console.setVerbosity((new URLSearchParams(location.search)).get('ccVerbosity') || 0);
+  console.setTags((new URLSearchParams(location.search)).get('cc-tags') || '');
+  console.setVerbosity((new URLSearchParams(location.search)).get('cc-verbosity') || 0);
 
 }());
