@@ -72,22 +72,22 @@ console.tags('my-component-keyword akey').log('Logged because 1 or more of the t
 console.tags('my-component-keyword').tags('akey').log('Not logged.');
 </script>
 
-    <h3>Set with query parameters</h3>
-    <p>
-      Use the <code>cc-tags</code> query parameter to set tags.<br>
-      Try adding <code>?cc-tags=ckey</code> and check your console (<a href="javascript:var usp=new URLSearchParams(location.search);usp.set('cc-tags', 'ckey');location.search='?'+usp.toString()">use this link to test</a>).
-    </p>
+      <h3>Set with query parameters</h3>
+      <p>
+        Use the <code>cc-tags</code> query parameter to set tags.<br>
+        Try adding <code>?cc-tags=ckey</code> and check your console (<a href="javascript:var usp=new URLSearchParams(location.search);usp.set('cc-tags', 'ckey');location.search='?'+usp.toString()">use this link to test</a>).
+      </p>
 
 <script data-example>
 console.log('-- Set with query parameters --');
 console.tags('ckey').log('Only shown if the ckey is set.');
 </script>
 
-    <p>The value of the <code>cc-tags</code> parameter is passed directly to the <code>setTags()</code> function so it supports the "-" prefix</p>
+      <p>The value of the <code>cc-tags</code> parameter is passed directly to the <code>setTags()</code> function so it supports the "-" prefix</p>
 
-    <!-- Verbosity -->
-    <h1>Using verbosity</h1>
-    <p>The verbosity is a simple integer, and the condition simply needs to be less or equal to the set verbosity.</p>
+      <!-- Verbosity -->
+      <h1>Using verbosity</h1>
+      <p>The verbosity is a simple integer, and the condition simply needs to be less or equal to the set verbosity.</p>
 
 <script data-example>
 console.log('-- Using verbosity --');
@@ -97,12 +97,25 @@ console.verbosity(2).log('Verbosity level 2. Not logged.');
 
 // Activate keywords using the setTags() function.
 console.setVerbosity(5);
-console.verbosity(2).log('Logged.');
+console.verbosity(2).log('Verbosity level 2. Is logged because current level is 5.');
 </script>
 
-    <p>
-      Like setTags() this also supports query parameters, use the <code>cc-verbosity</code> parameter (<a href="javascript:var usp=new URLSearchParams(location.search);usp.set('cc-verbosity', 10);location.search='?'+usp.toString()">check this link</a>).
-    </p>
+      <p>
+        Like setTags() this also supports query parameters, use the <code>cc-verbosity</code> parameter (<a href="javascript:var usp=new URLSearchParams(location.search);usp.set('cc-verbosity', 10);location.search='?'+usp.toString()">check this link</a>).
+      </p>
+
+      <!-- Once -->
+      <h1>Using once</h1>
+      <p>The <code>once()</code> function is useful when looping through many items, but only wanting a single sample:</p>
+
+      <div class="alert alert-info" role="alert">Output is in your console.</div>
+<script data-example>
+console.log('-- Using once --');
+[1, 2, 3, 4].forEach(function (value) {
+  console.once('once name').log('Only shown once', value);
+  console.once().log('If the name is omitted once() will autocreate one');
+});
+</script>
 
     <script>
       // Simple init of the example page.

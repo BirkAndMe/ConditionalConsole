@@ -14,8 +14,11 @@ Just include the js and it will decorate the `console` object with the condition
 <script src="conditionalConsole.js"></script>
 ```
 
+## Usage
+
+Check out the `examples.html` of how to use Conditional Console.
+
 ## TODO
 
 - JSdoc.
 - Depending on jsdoc quality list all functions in README.md.
-- Implement `once` condition function.

@@ -17,7 +17,12 @@
   /**
    *
    */
-  let _tags = {}
+  const _tags = {};
+
+  /**
+   *
+   */
+  const _once = {};
 
   /**
    *
@@ -88,6 +93,28 @@
           break;
       }
     });
+
+    return console;
+  }
+
+  /**
+   * @param {string=} name
+   */
+  console.once = function (name) {
+    if (name === undefined) {
+      // A hacky, but effective, way of creating a unique name depending on
+      // where the function is called.
+      try { throw new Error(); }
+      catch (e) {
+        name = e.stack.split("\n")[1]
+      }
+    }
+
+    if (name in _once) {
+      return neverendingObject;
+    }
+
+    _once[name] = true;
 
     return console;
   }
